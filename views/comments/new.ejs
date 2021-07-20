@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New comments</title>
+</head>
+<body>
+    <h1>Make a new comment</h1>
+    <form action="/comments" method="POST">
+        <section>
+        <label for="username">Enter username :</label>
+        <input type="text" placeholder="username" name="username">
+        </section>
+        <br>
+        <section>
+        <label for="comment">Enter comment</label>
+        <br>
+        <textarea name="comment" id="" cols="35" rows="5"></textarea>
+        </section>
+        <button>Submit</button>
+    </form>
+    <form action="/comments" method="get">
+        <button>Back to comments page</button>
+    </form>
+</body>
+</html>
