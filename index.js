@@ -2,15 +2,24 @@ const express=require('express');
 const app=express();
 const { v4: uuidv4 } = require('uuid');
 const path=require('path')
+var router = express.Router()
 app.use(express.urlencoded({ extended: true  })) // for parsing application/x-www-form-urlencoded
 app.use(express.json())
 var methodOverride = require('method-override')
+// router.use(function (req, res, next) {
+//   console.log('middleware run')
+//   next()
+// })
 app.use(methodOverride('_method'))
+app.use(function (req, res, next) {
+    console.log('Request Type:', req.method)
+    next()
+})
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
-// app.get('/tacos',(req,res)=>{
-//     res.send("Get /tacos response")
-// })
+router.get('/tacos',(req,res)=>{
+    res.send("Get /tacos response")
+})
 let comments=[
     {
         id:uuidv4(),
@@ -81,3 +90,4 @@ post /comments - creat a new comments
 get /comments/:id - get one comment from user id
 patch /comments/:id - update one comments
 detete /comments/:id - deleta commenst froem user id*/
+module.exports=router;
