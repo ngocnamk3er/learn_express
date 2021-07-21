@@ -71,9 +71,7 @@ app.patch('/comments/:id',(req,res)=>{
 //     var {meat, qty}=req.body
 //     res.send(`Post /tacos response ${meat}: ${qty}`)
 // })
-app.listen(3000,()=>{
-    console.log("LISten on port 3000")
-})
+app.listen(process.env.PORT || 3000)
 app.get('/comments/:id/edit',(req,res)=>{
     const {id}=req.params
     const comment=comments.find(c=>c.id===id)
