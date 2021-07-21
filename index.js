@@ -42,6 +42,9 @@ let comments=[
         comment:'woof woof woof'
     }
 ]
+app.get('/',(req,res)=>{
+    res.sendFile(__dirname+'/views/index.html')
+})
 app.get('/comments',(req,res)=>{
     res.render('comments/index',{comments})
 })
